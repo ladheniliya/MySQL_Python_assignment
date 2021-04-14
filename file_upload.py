@@ -4,19 +4,22 @@ import os
 
 arr = os.listdir('F:\project\mysql_project\mysql_py\csv-files')
 print(arr)
-#for i in range(arr):
-#    for j in range(arr):
-#        if arr[1]!=arr[j]
-#        
+
 path = r'F:\project\mysql_project\mysql_py\csv-files' # use your path
 all_files = glob.glob(path + "/*.csv")
+
+file_inserted = ['F:\\project\\mysql_project\\mysql_py\\csv-files\\1.csv']
+
 file_count=0
 data_all = []
 
 for filename in all_files:
-    df = pd.read_csv(filename, index_col=None, header=0)
-    data_all.append(df)
-    file_count += 1
+    if file_inserted.__contains__(filename):
+        pass
+    else:
+        df = pd.read_csv(filename, index_col=None, header=0)
+        data_all.append(df)
+        file_count += 1
 print(data_all)
 print("file_count: "+str(file_count))
 print("append successful")
